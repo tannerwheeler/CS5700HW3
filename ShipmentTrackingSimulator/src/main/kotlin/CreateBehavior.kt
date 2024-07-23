@@ -10,6 +10,7 @@ class CreateBehavior(
     }
 
     override fun performAction() {
+        require(TrackingSimulator.findShipment(data[1]) == null) { "This shipment already exists" }
         TrackingSimulator.addShipment(Shipment(data[0], data[1], null, null))
     }
 }
