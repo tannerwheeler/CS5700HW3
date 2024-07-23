@@ -14,7 +14,7 @@ object Server {
         ActionFactory(shipmentAction.toMutableList()).callAction()
     }
 
-    suspend fun startServer() {
+    fun startServer() {
         embeddedServer(Netty, 8080) {
             routing {
                 get("/") {
@@ -23,10 +23,11 @@ object Server {
 
                 post("/data") {
                     val data = call.receiveText()
+                    println(data)
                     updateShipment(data)
                     call.respondText { "POST Data Successful" }
                 }
             }
-        }.start(wait = true)
+        }.start(wait = false)
     }
 }

@@ -28,11 +28,7 @@ fun app() {
     val shipments = remember { mutableStateListOf<TrackerViewHelper>() }
     val coroutineScope = rememberCoroutineScope()
 
-    coroutineScope.launch {
-        println("Begin")
-        Server.startServer()
-        println("After")
-    }
+    Server.startServer()
 
     MaterialTheme {
         Column {
@@ -85,13 +81,13 @@ fun app() {
                                     Text("Status: --")
                                 }
                                 if (it.shipmentLocation != null) {
-                                Text("Location: ${it.shipmentLocation}")
+                                    Text("Location: ${it.shipmentLocation}")
                                 }
                                 else {
                                     Text("Location: --")
                                 }
                                 if (it.expectedShipmentDeliveryDate != null) {
-                                Text("Expected Delivery: ${it.expectedShipmentDeliveryDate}")
+                                    Text("Expected Delivery: ${it.expectedShipmentDeliveryDate}")
                                 }
                                 else {
                                     Text("Expected Delivery: --")

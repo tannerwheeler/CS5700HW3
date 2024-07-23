@@ -27,14 +27,4 @@ object TrackingSimulator {
             return listOfLines
         }
     }
-
-//    suspend fun runSimulation() {
-//        val listOfLines = readFile().toMutableList()
-//
-//        listOfLines.forEach {
-//            val shipmentAction = it.split(",")
-//            ActionFactory(shipmentAction.toMutableList()).callAction()
-//            delay(1000)
-//        }
-//    }
 }
