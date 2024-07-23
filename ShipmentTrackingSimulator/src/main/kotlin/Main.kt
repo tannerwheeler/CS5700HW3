@@ -28,9 +28,10 @@ fun app() {
     val shipments = remember { mutableStateListOf<TrackerViewHelper>() }
     val coroutineScope = rememberCoroutineScope()
 
-    coroutineScope.launch {
-        TrackingSimulator.runSimulation()
-    }
+    Server.startServer()
+//    coroutineScope.launch {
+//        TrackingSimulator.runSimulation()
+//    }
 
     MaterialTheme {
         Column {

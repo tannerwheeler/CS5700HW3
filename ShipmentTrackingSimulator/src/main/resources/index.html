@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function updateData() {
+            fetch("/data", {
+                method: "post",
+                body: document.getElementById("input").value
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>Shipment Updater</h1>
+    <div>
+        <label for="input"></label><input type="text" id="input">
+        <button onclick="updateData()">
+            Update Shipment
+        </button>
+    </div>
+
+</body>
+</html>
