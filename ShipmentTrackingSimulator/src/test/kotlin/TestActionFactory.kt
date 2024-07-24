@@ -6,14 +6,14 @@ import kotlin.test.assertFailsWith
 class TestActionFactory {
     @Test
     fun testActionFactoryCreate() {
-        val t1 = mutableListOf("created","af","1652712855468")
-        val t2 = mutableListOf("shipped","af","1652712855468","1652713940874")
-        val t3 = mutableListOf("location","af","1652712855468","Los Angeles CA")
-        val t4 = mutableListOf("delayed","af","1652712855468","1652718051403")
-        val t5 = mutableListOf("noteadded","af","1652712855468","package was damaged slightly during shipping")
-        val t6 = mutableListOf("lost","af","1652712855468")
-        val t7 = mutableListOf("canceled","af","1652712855468")
-        val t8 = mutableListOf("delivered","af","1652712855468")
+        val t1 = mutableListOf("created","af","bulk","1652712855468")
+        val t2 = mutableListOf("shipped","af","standard","1652712855468","1652713940874")
+        val t3 = mutableListOf("location","af","kdkdk","1652712855468","Los Angeles CA")
+        val t4 = mutableListOf("delayed","af","expedited","1652712855468","1652718051403")
+        val t5 = mutableListOf("noteadded","af","overnight","1652712855468","package was damaged slightly during shipping")
+        val t6 = mutableListOf("lost","af","standard","1652712855468")
+        val t7 = mutableListOf("canceled","af","standard","1652712855468")
+        val t8 = mutableListOf("delivered","af","standard","1652712855468")
 
         ActionFactory(t1).callAction()
         val shipment = TrackingSimulator.findShipment("af")

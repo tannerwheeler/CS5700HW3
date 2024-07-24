@@ -16,7 +16,7 @@ class TestTrackerViewHelper {
     @Test
     fun testTrackShipment() {
         val trackerViewHelper = TrackerViewHelper("helperID")
-        val shipment = Shipment("observer", "helperID", null, null)
+        val shipment = Shipment("observer", "helperID", "StandardShipment",null, null)
         TrackingSimulator.addShipment(shipment)
         trackerViewHelper.trackShipment("helperID")
         assertEquals(shipment, trackerViewHelper.shipment)
@@ -45,7 +45,7 @@ class TestTrackerViewHelper {
     @Test
     fun testStopTracking() {
         val trackerViewHelper = TrackerViewHelper("helperID2")
-        val shipment = Shipment("observer", "helperID2", null, null)
+        val shipment = Shipment("observer", "helperID2", "StandardShipment",null, null)
         TrackingSimulator.addShipment(shipment)
         trackerViewHelper.trackShipment("helperID2")
         assertEquals(shipment, trackerViewHelper.shipment)

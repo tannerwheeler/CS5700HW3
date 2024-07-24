@@ -13,7 +13,7 @@ class TestTrackingSimulator {
 
     @Test
     fun testAddShipment() {
-        val sad = Shipment("testing", "1234", null, null)
+        val sad = Shipment("testing", "1234", "ExpeditedShipment",null, null)
         TrackingSimulator.addShipment(sad)
         val shipment = TrackingSimulator.findShipment("ts1")
         assertNotEquals(null, shipment)

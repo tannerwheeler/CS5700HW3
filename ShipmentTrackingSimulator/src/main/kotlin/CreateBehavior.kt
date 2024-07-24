@@ -32,10 +32,10 @@ class CreateBehavior(
         )
 
         when(newShipment.type) {
-            "StandardShipment" -> CreateUpdateTimeBehavior(mutableListOf("${data[0]},${data[1]},${data[2]},${data[2].toLong() + 259200000}")).performAction()
-            "ExpressShipment" -> CreateUpdateTimeBehavior(mutableListOf("${data[0]},${data[1]},${data[2]},${data[2].toLong() + 172800000}")).performAction()
-            "OvernightShipment" -> CreateUpdateTimeBehavior(mutableListOf("${data[0]},${data[1]},${data[2]},${data[2].toLong() + 86400000}")).performAction()
-            "BulkShipment" -> CreateUpdateTimeBehavior(mutableListOf("${data[0]},${data[1]},${data[2]},${data[2].toLong() + 345600000}")).performAction()
+            "express" -> CreateUpdateTimeBehavior(mutableListOf(data[0],data[1],data[2],(data[2].toLong() + 172800000).toString())).performAction()
+            "overnight" -> CreateUpdateTimeBehavior(mutableListOf(data[0],data[1],data[2],(data[2].toLong() +86400000).toString())).performAction()
+            "bulk" -> CreateUpdateTimeBehavior(mutableListOf(data[0],data[1],data[2],(data[2].toLong() +345600000).toString())).performAction()
+            else -> CreateUpdateTimeBehavior(mutableListOf(data[0],data[1],data[2],(data[2].toLong() + 259200000).toString())).performAction()
         }
     }
 }

@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>279</y><w>198</w><h>288</h></coordinates><panel_attributes>TrackerViewHelper
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>54</x><y>261</y><w>198</w><h>288</h></coordinates><panel_attributes>TrackerViewHelper
 --
 + shipment: State
 + shipmentId: State&lt;String&gt;
@@ -18,13 +18,13 @@ _Responsibilities_
 - TrackerViewHelper has the responsibility of preparing data for the using interface to display
 
 style=wordwrap
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>351</y><w>198</w><h>99</h></coordinates><panel_attributes>ShippingUpdate
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>333</y><w>198</w><h>99</h></coordinates><panel_attributes>ShippingUpdate
 --
 + previousStatus: String
 + newStatus: String
 + timestamp: Long
 
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>324</y><w>198</w><h>207</h></coordinates><panel_attributes>Shipment
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>306</y><w>198</w><h>207</h></coordinates><panel_attributes>Shipment
 --
 + status: String
 + id: String
@@ -42,8 +42,8 @@ style=wordwrap
 
 style=wordwrap
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>171</y><w>144</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Creates and uses these</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>18</x><y>90</y><w>171</w><h>90</h></coordinates><panel_attributes>UserInterface</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>729</x><y>126</y><w>198</w><h>135</h></coordinates><panel_attributes>&lt;&lt;Singleton&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>153</y><w>144</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Creates and uses these</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>72</x><y>72</y><w>171</w><h>90</h></coordinates><panel_attributes>UserInterface</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>783</x><y>108</y><w>198</w><h>135</h></coordinates><panel_attributes>&lt;&lt;Singleton&gt;&gt;
 TrackingSimulator
 --
 - shipments: MutableList&lt;Shipment&gt;
@@ -53,7 +53,7 @@ TrackingSimulator
 + addShipment(shipment: Shipment)
 + runSimulation()
 
-style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>666</y><w>189</w><h>117</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>54</x><y>648</y><w>189</w><h>117</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
 ShipmentObserver
 --
 
@@ -61,7 +61,7 @@ ShipmentObserver
 + getUpdate(notes: MutableList&lt;String&gt;?, expectedShipmentDeliveryDate: Long?, status: String?)
 
 style=wordwrap
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>621</y><w>198</w><h>162</h></coordinates><panel_attributes>style=wordwrap
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>603</y><w>198</w><h>162</h></coordinates><panel_attributes>style=wordwrap
 &lt;&lt;Abstract&gt;&gt;
 ShipmentSubject
 --
@@ -70,23 +70,23 @@ ShipmentSubject
 --
 + subscribe(observer: ShipmentObserver)
 + unsubscribe(observer: ShipmentObserver)
-+ notifyObservers(note: String, history: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>522</y><w>27</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>81</x><y>558</y><w>27</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>711</y><w>216</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
++ notifyObservers(note: String, history: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>504</y><w>27</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>540</y><w>27</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>693</y><w>216</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
 m1=
 m2=1
-</panel_attributes><additional_attributes>10;20;220;20</additional_attributes></element><element><id>Relation</id><coordinates><x>522</x><y>270</y><w>198</w><h>99</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
-m2=0..*</panel_attributes><additional_attributes>200;90;200;10;10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1062</x><y>207</y><w>153</w><h>99</h></coordinates><panel_attributes>style=wordwrap
+</panel_attributes><additional_attributes>10;20;220;20</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>252</y><w>198</w><h>99</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m2=0..*</panel_attributes><additional_attributes>200;90;200;10;10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1116</x><y>189</y><w>153</w><h>99</h></coordinates><panel_attributes>style=wordwrap
 &lt;&lt;Abstract&gt;&gt;
 ActionFactory
 --
 - data: MutableList&lt;String&gt;
 
 --
-+ callAction()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>36</y><w>333</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Starts</panel_attributes><additional_attributes>350;20;10;20;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>189</x><y>405</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
++ callAction()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>18</y><w>333</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Starts</panel_attributes><additional_attributes>350;20;10;20;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>387</y><w>207</w><h>36</h></coordinates><panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
 m1=1
-m2=</panel_attributes><additional_attributes>210;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>918</x><y>153</y><w>243</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+m2=</panel_attributes><additional_attributes>210;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>972</x><y>135</y><w>243</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
 Uses
-</panel_attributes><additional_attributes>250;60;250;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1062</x><y>387</y><w>153</w><h>135</h></coordinates><panel_attributes>style=wordwrap
+</panel_attributes><additional_attributes>250;60;250;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1116</x><y>369</y><w>153</w><h>135</h></coordinates><panel_attributes>style=wordwrap
 &lt;&lt;Abstract&gt;&gt;
 SimulatorActionBehavior
 --
@@ -94,15 +94,15 @@ SimulatorActionBehavior
 + dataLength: Int
 
 --
-+ performAction()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1134</x><y>297</y><w>54</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Uses</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>612</y><w>144</w><h>27</h></coordinates><panel_attributes>CreateBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1125</x><y>603</y><w>144</w><h>27</h></coordinates><panel_attributes>LocationBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>675</y><w>153</w><h>27</h></coordinates><panel_attributes>UpdateDeliverTimeBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1377</x><y>603</y><w>144</w><h>27</h></coordinates><panel_attributes>NoteAddedBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>981</x><y>675</y><w>144</w><h>27</h></coordinates><panel_attributes>GiveEndStatusBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>909</x><y>513</y><w>243</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>250;10;250;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1044</x><y>513</y><w>108</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;100;60;10;60;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>513</y><w>90</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;80;60;80;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>513</y><w>225</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;230;60;230;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>513</y><w>342</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;360;60;360;100</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>441</y><w>333</w><h>342</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Creates</panel_attributes><additional_attributes>10;10;10;360;350;360;350;290</additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>252</y><w>198</w><h>234</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Uses</panel_attributes><additional_attributes>10;10;10;240;200;240</additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>441</y><w>621</w><h>342</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;360;670;360;670;290</additional_attributes></element><element><id>Relation</id><coordinates><x>441</x><y>180</y><w>306</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
-m2=0..*</panel_attributes><additional_attributes>320;10;10;10;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>405</x><y>18</y><w>189</w><h>90</h></coordinates><panel_attributes>&lt;&lt;Singleton&gt;&gt;
-SimpleClass
++ performAction()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1188</x><y>279</y><w>54</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Uses</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>900</x><y>594</y><w>144</w><h>27</h></coordinates><panel_attributes>CreateBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1179</x><y>585</y><w>144</w><h>27</h></coordinates><panel_attributes>LocationBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1305</x><y>657</y><w>153</w><h>27</h></coordinates><panel_attributes>UpdateDeliverTimeBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1431</x><y>585</y><w>144</w><h>27</h></coordinates><panel_attributes>NoteAddedBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1035</x><y>657</y><w>144</w><h>27</h></coordinates><panel_attributes>GiveEndStatusBehavior</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>963</x><y>495</y><w>243</w><h>117</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>250;10;250;60;10;60;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>1098</x><y>495</y><w>108</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;100;60;10;60;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1179</x><y>495</y><w>90</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;80;60;80;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1179</x><y>495</y><w>225</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;230;60;230;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1179</x><y>495</y><w>342</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;360;60;360;100</additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>423</y><w>333</w><h>342</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Creates</panel_attributes><additional_attributes>10;10;10;360;350;360;350;290</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>234</y><w>198</w><h>234</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Uses</panel_attributes><additional_attributes>10;10;10;240;200;240</additional_attributes></element><element><id>Relation</id><coordinates><x>747</x><y>423</y><w>621</w><h>342</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;360;670;360;670;290</additional_attributes></element><element><id>Relation</id><coordinates><x>495</x><y>162</y><w>306</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=0..*</panel_attributes><additional_attributes>320;10;10;10;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>459</x><y>0</y><w>189</w><h>90</h></coordinates><panel_attributes>&lt;&lt;Singleton&gt;&gt;
+Server
 --
 
 --
 - updateShipment(data: String)
-+ startServer()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>585</x><y>36</y><w>261</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
-Uses</panel_attributes><additional_attributes>270;100;270;20;10;20</additional_attributes></element></diagram>
++ startServer()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>639</x><y>18</y><w>261</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-
+Uses</panel_attributes><additional_attributes>270;100;270;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>990</x><y>792</y><w>90</w><h>27</h></coordinates><panel_attributes>SimpleClass</panel_attributes><additional_attributes></additional_attributes></element></diagram>
