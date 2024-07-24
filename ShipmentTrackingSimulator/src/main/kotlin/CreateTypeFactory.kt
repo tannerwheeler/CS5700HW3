@@ -3,9 +3,9 @@ class CreateTypeFactory(
 ) {
     fun createType() : String {
         when(type) {
-            "ExpressShipment" -> return "ExpressShipment"
-            "OvernightShipment" -> return "OvernightShipment"
-            "BulkShipment" -> return "BulkShipment"
+            "express" -> return "ExpressShipment"
+            "overnight" -> return "OvernightShipment"
+            "bulk" -> return "BulkShipment"
             else -> return "StandardShipment"
         }
     }

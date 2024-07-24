@@ -1,4 +1,3 @@
-import kotlinx.coroutines.delay
 import java.io.File
 
 object TrackingSimulator {

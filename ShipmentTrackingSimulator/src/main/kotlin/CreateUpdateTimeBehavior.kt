@@ -1,19 +1,17 @@
-class UpdateDeliveryTimeBehavior(
+class CreateUpdateTimeBehavior(
     data: MutableList<String>
 ) : SimulatorActionBehavior(data) {
     override var dataLength: Int = 4
 
     init {
         require(data.size == dataLength) {
-            "UpdateDeliveryTimeBehavior data parameter must be of size 4"
+            "CreateUpdateTimeBehavior data parameter must be of size 4"
         }
     }
 
     override fun performAction() {
         val shipment = findShipment()
-        require(shipment != null) { "Shipment not found in UpdateDeliveryTimeBehavior" }
+        require(shipment != null) { "Shipment not found in CreateUpdateTimeBehavior" }
         shipment.expectedDeliveryDateTimestamp = data[3].toLong()
-        val update = ShippingUpdate(shipment.status, data[0], data[2].toLong())
-        shipment.addUpdate(update)
     }
 }

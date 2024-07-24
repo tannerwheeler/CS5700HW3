@@ -10,7 +10,7 @@ class ActionFactory(
             "noteadded" -> NoteAddedBehavior(data).performAction()
             "lost" -> GiveEndStatusBehavior(data).performAction()
             "canceled" -> GiveEndStatusBehavior(data).performAction()
-            "delivered" -> GiveEndStatusBehavior(data).performAction()
+            "delivered" -> DeliveredEndBehavior(data).performAction()
             else -> require(true == false) {"Illegal Input call data for Action Factory"}
         }
     }

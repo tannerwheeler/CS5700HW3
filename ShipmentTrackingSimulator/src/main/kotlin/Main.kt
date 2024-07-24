@@ -17,9 +17,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.Key.Companion.Calendar
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.launch
+import java.util.*
 
 @Composable
 @Preview
@@ -124,6 +125,10 @@ fun app() {
 }
 
 fun main() = application {
+    println(Date(259200000).compareTo(Date(0)))
+    println(Date(259200000).toString())
+    println(Date(0).toString())
+
     Window(onCloseRequest = ::exitApplication) {
         app()
     }
