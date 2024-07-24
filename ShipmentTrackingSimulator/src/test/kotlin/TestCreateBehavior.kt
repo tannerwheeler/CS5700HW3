@@ -30,7 +30,7 @@ class TestCreateBehavior {
 
     @Test
     fun testTooManyParametersIDCreateBehavior() {
-        val block : () -> Unit = { CreateBehavior(mutableListOf<String>("created", "tandlleslldd", "10002928849", "Los Angeles, CA")) }
+        val block : () -> Unit = { CreateBehavior(mutableListOf<String>("created", "tandlleslldd", "Bulk Shipment", "10002928849", "Los Angeles, CA")) }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 }

@@ -3,6 +3,7 @@ import java.util.*
 class Shipment(
     var status: String,
     var id: String,
+    var type: String,
     var expectedDeliveryDateTimestamp: Long?,
     var currentLocation: String?
 ): ShipmentSubject() {
