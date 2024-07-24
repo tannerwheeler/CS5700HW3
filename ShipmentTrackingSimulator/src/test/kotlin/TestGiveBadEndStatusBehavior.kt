@@ -3,7 +3,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotEquals
 
-class TestGiveEndStatusBehavior {
+class TestGiveBadEndStatusBehavior {
     private val s_endStatus = CreateBehavior(mutableListOf("created", "s1000g", "10002928849"))
     private val s2_endStatus = CreateBehavior(mutableListOf("created", "tandllesll", "10002928849"))
 
@@ -13,9 +13,9 @@ class TestGiveEndStatusBehavior {
         s2_endStatus.performAction()
 
         val shipment = TrackingSimulator.findShipment("s1000g")
-        val lost = GiveEndStatusBehavior(mutableListOf("lost", "s1000g", "10002928849"))
-        val canceled = GiveEndStatusBehavior(mutableListOf("canceled", "s1000g", "10002928849"))
-        val delivered = GiveEndStatusBehavior(mutableListOf("delivered", "s1000g", "10002928849"))
+        val lost = GiveBadEndStatusBehavior(mutableListOf("lost", "s1000g", "10002928849"))
+        val canceled = GiveBadEndStatusBehavior(mutableListOf("canceled", "s1000g", "10002928849"))
+        val delivered = GiveBadEndStatusBehavior(mutableListOf("delivered", "s1000g", "10002928849"))
 
         lost.performAction()
         assertNotEquals(null, shipment)
@@ -44,7 +44,7 @@ class TestGiveEndStatusBehavior {
     fun testWeirdIDGiveEndStatusBehavior() {
         s2_endStatus.performAction()
 
-        val lost = GiveEndStatusBehavior(mutableListOf("lost", "tandllesll", "10002928849"))
+        val lost = GiveBadEndStatusBehavior(mutableListOf("lost", "tandllesll", "10002928849"))
         lost.performAction()
         val shipment = TrackingSimulator.findShipment("tandllesll")
         assertNotEquals(null, shipment)
@@ -56,19 +56,19 @@ class TestGiveEndStatusBehavior {
 
     @Test
     fun testTooFewParametersIDGiveEndStatusBehavior() {
-        val block : () -> Unit = { GiveEndStatusBehavior(mutableListOf("lost", "tandllesll")) }
+        val block : () -> Unit = { GiveBadEndStatusBehavior(mutableListOf("lost", "tandllesll")) }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testTooManyParametersIDGiveEndStatusBehavior() {
-        val block : () -> Unit = { GiveEndStatusBehavior(mutableListOf("lost", "tandllesll", "10002928849", "Los Angeles, CA")) }
+        val block : () -> Unit = { GiveBadEndStatusBehavior(mutableListOf("lost", "tandllesll", "10002928849", "Los Angeles, CA")) }
         assertFailsWith<IllegalArgumentException> { block() }
     }
 
     @Test
     fun testGiveEndStatusBehaviorBadID() {
-        val badBehavior = GiveEndStatusBehavior(mutableListOf("lost", "s10jjhbhn", "10002928849"))
+        val badBehavior = GiveBadEndStatusBehavior(mutableListOf("lost", "s10jjhbhn", "10002928849"))
         val block : () -> Unit = { badBehavior.performAction() }
         assertFailsWith<IllegalArgumentException> { block() }
     }

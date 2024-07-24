@@ -23,7 +23,7 @@ class CreateBehavior(
         val newShipment = Shipment(data[0],
             data[1],
             CreateTypeFactory(data[2]).createType(),
-            null,
+            data[3].toLong(),
             null
         )
 

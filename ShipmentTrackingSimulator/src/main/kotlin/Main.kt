@@ -125,10 +125,6 @@ fun app() {
 }
 
 fun main() = application {
-    println(Date(259200000).compareTo(Date(0)))
-    println(Date(259200000).toString())
-    println(Date(0).toString())
-
     Window(onCloseRequest = ::exitApplication) {
         app()
     }

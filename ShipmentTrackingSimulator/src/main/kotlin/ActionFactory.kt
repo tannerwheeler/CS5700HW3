@@ -8,8 +8,8 @@ class ActionFactory(
             "location" -> LocationBehavior(data).performAction()
             "delayed" -> UpdateDeliveryTimeBehavior(data).performAction()
             "noteadded" -> NoteAddedBehavior(data).performAction()
-            "lost" -> GiveEndStatusBehavior(data).performAction()
-            "canceled" -> GiveEndStatusBehavior(data).performAction()
+            "lost" -> GiveBadEndStatusBehavior(data).performAction()
+            "canceled" -> GiveBadEndStatusBehavior(data).performAction()
             "delivered" -> DeliveredEndBehavior(data).performAction()
             else -> require(true == false) {"Illegal Input call data for Action Factory"}
         }

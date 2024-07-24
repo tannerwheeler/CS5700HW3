@@ -1,31 +1,31 @@
 import java.util.*
 
 class ShipmentDeliveryTimeChecker(
-    val shipment : Shipment,
-    val shipmentType : String,
-    val originalTime : String,
-    val newTime : String
+    val shipment: Shipment,
+    val shipmentType: String,
+    val originalTime: Long?,
+    val newTime: Long
 ) {
     fun checkTimes() : SimulatorActionBehavior? {
-        val timeDifference = Date(originalTime.toLong()).compareTo(Date(newTime.toLong()))
+        require(originalTime != null)
+        val timeDifference = Date(originalTime).compareTo(Date(newTime))
 
         when(this.shipmentType) {
             "ExpressShipment" -> {
                 if(timeDifference < 0) {
-                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This express shipment was updated to" +
+                    return NoteAddedBehavior(mutableListOf("noteadded",this.shipment.id,"0","This express shipment was updated to" +
                             " include a delivery date 3 or more days after it was created."))
                 }
             }
             "OvernightShipment" -> {
                 if(timeDifference < 0) {
-                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This overnight shipment was updated to" +
+                    return NoteAddedBehavior(mutableListOf("noteadded",this.shipment.id,"0","This overnight shipment was updated to" +
                             " include a delivery date later than 24 hours after it was created."))
                 }
             }
             "BulkShipment" -> {
                 if(timeDifference > 0) {
-                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This bulk shipment will arrive" +
-                            "before the estimated 3 days."))
+                    return NoteAddedBehavior(mutableListOf("noteadded",this.shipment.id,"0","This bulk shipment will arrive before the estimated 3 day minimum."))
                 }
             }
             else -> return null
