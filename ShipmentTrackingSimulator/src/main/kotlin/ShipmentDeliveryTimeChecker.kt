@@ -1,31 +1,36 @@
 import java.util.*
 
 class ShipmentDeliveryTimeChecker(
-    val shipmentID : String,
+    val shipment : Shipment,
     val shipmentType : String,
     val originalTime : String,
     val newTime : String
 ) {
-    fun checkTimes() {
-        val shipment = TrackingSimulator.findShipment(this.shipmentID)
-        require(shipment != null) { "Shipment in ShipmentDeliveryTimeChecker was not found" }
-
+    fun checkTimes() : SimulatorActionBehavior? {
         val timeDifference = Date(originalTime.toLong()).compareTo(Date(newTime.toLong()))
 
         when(this.shipmentType) {
-            "StandardShipment" -> return
             "ExpressShipment" -> {
                 if(timeDifference < 0) {
-
+                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This express shipment was updated to" +
+                            " include a delivery date 3 or more days after it was created."))
                 }
             }
             "OvernightShipment" -> {
-
+                if(timeDifference < 0) {
+                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This overnight shipment was updated to" +
+                            " include a delivery date later than 24 hours after it was created."))
+                }
             }
             "BulkShipment" -> {
-
+                if(timeDifference > 0) {
+                    return NoteAddedBehavior(mutableListOf("noteadded,${this.shipment},0,This bulk shipment will arrive" +
+                            "before the estimated 3 days."))
+                }
             }
+            else -> return null
         }
+        return null
     }
 }
 
